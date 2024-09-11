@@ -49,7 +49,7 @@ Results will be recorded in `exp_results` folder.
 More detailed hyperparameters are presented in the paper and you can find them in `config/attack/$data/basee.yaml` as well as the main file.
 
 
-#### Hyperparameters listed below are specifically for LASA.
+### Hyperparameters listed below are specifically for LASA.
 | Argument        | Type       | Description                                                               |
 |-----------------|------------|---------------------------------------------------------------------------|
 | `sparsity`             | float        | Pre-aggregation sparsification level                                                      |
