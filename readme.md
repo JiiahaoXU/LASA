@@ -1,4 +1,4 @@
-## Achieving Byzantine-Resilient Federated Learning via Layer-Adaptive Sparsified Model Aggregation, WACV 2025 [arXiv][paper]
+## Achieving Byzantine-Resilient Federated Learning via Layer-Adaptive Sparsified Model Aggregation, WACV 2025, [arXiv][paper]
 
 [paper]: https://arxiv.org/abs/2409.01435
 
