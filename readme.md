@@ -3,6 +3,8 @@
 
 ## Usage
 
+If you have any issues using this repo, feel free to contact Jiahao @ jiahaox@unr.edu.
+
 ### Dataset
 
 All tested datasets are available on `torchvision` except the Shakespeare dataset. We provide it for your convenience：https://drive.google.com/file/d/1_FkrOD6YWchxOBXL3mYV9Ila8R9RkCdZ/view?usp=sharing
