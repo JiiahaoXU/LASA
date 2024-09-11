@@ -24,7 +24,7 @@ defend = {'fedavg', 'signguard', 'dnc', 'lasa', 'bulyan', 'tr_mean', 'multi_krum
 data = {'mnist', 'fmnist', 'femnist', 'sha', 'cifar', 'noniidcifar', 'cifar100', 'noniidcifar100'}
 ```
 
-For example, to run LASA on defending against ByzMean attack on the IID CIFAR-10 dataset, you can use:
+For example, to run LASA defends against ByzMean attack on the IID CIFAR-10 dataset, you can use:
 
 ```
 python main.py --attack byzmean_attack --defend lasa --dataset cifar
