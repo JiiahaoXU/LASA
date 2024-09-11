@@ -3,6 +3,10 @@
 
 ## Usage
 
+### Dataset
+
+All tested datasets are available on `torchvision` except the Shakespeare dataset. We provide it for your convenience：https://drive.google.com/file/d/1_FkrOD6YWchxOBXL3mYV9Ila8R9RkCdZ/view?usp=sharing
+
 ### Example
 
 Generally, to run a case with default settings, you can easily use the following command:
@@ -17,10 +21,10 @@ attack = {'agrTailoredTrmean', 'agrAgnosticMinMax', 'agrAgnosticMinSum', 'signfl
 
 defend = {'fedavg', 'signguard', 'dnc', 'lasa', 'bulyan', 'tr_mean', 'multi_krum', 'sparsefed', 'geomed'}
 
-data = {'cifar', 'noniidcifar', 'cifar100', 'noniidcifar100'}
+data = {'mnist', 'fmnist', 'femnist', 'sha', 'cifar', 'noniidcifar', 'cifar100', 'noniidcifar100'}
 ```
 
-For example, to run LASA on defending against ByzMean attack on IID CIFAR-10 dataset, you can use:
+For example, to run LASA on defending against ByzMean attack on the IID CIFAR-10 dataset, you can use:
 
 ```
 python main.py --attack byzmean_attack --defend lasa --dataset cifar
@@ -35,20 +39,20 @@ Results will be recorded in `exp_results` folder.
 | Argument        | Type       | Description                                                               |
 |-----------------|------------|---------------------------------------------------------------------------|
 | `repeat`         | int        | Number of repeat of training                                           |
-| `num_attackers`    | int        |  How many clients are malicios, use integer here (e.g., 20 -> 20% of total clients are malicious        |
+| `num_attackers`    | int        |  How many clients are malicious, use an integer here (e.g., 20 -> 20% of total clients are malicious).        |
 | `num_users`    | int      | How many clients in the FL system                              |
-| `num_selected_users`         | int | how many clients to be selected per round.                                              |
+| `num_selected_users`         | int | The number of clients are selected per round.                                              |
 | `round`      | int      | Total training rounds  |
 | `tau`      | int      | Local training epochs  |
 
 
-More detailed hyparameters are presented in paper and you can find them in `config/attack/$data/basee.yaml`.
+More detailed hyperparameters are presented in the paper and you can find them in `config/attack/$data/basee.yaml` as well as the main file.
 
 
 #### Hyperparameters listed below are specifically for LASA.
 | Argument        | Type       | Description                                                               |
 |-----------------|------------|---------------------------------------------------------------------------|
-| `sparsity`             | store_true        | Pre-aggregation sparsification level                                                      |
+| `sparsity`             | float        | Pre-aggregation sparsification level                                                      |
 | `lambda_n`  | float        | Filtering radius for norm                                                    |
 | `lambda_s`  | float        | Filtering radius for sign                                                    |
 
@@ -66,6 +70,6 @@ If you find our repository is useful for your work, please cite our work:
     
 ## Acknowledgment
 
-We would like to thank the work that help our paper:
+We would like to thank the work that helped our paper:
 
 1. SignGuard: https://github.com/JianXu95/SignGuard/tree/main.
