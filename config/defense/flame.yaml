@@ -1,0 +1,12 @@
+_base_ : ['../base.yaml']
+
+############## base differential #############
+
+########### base differential ends ###########
+
+wrong_mal: 0
+right_ben: 0
+mal_score: 0
+ben_score: 0
+noise: 0.1 #0.001 0.01, 0.02_, 0.015_, 0.012_
+turn: 0

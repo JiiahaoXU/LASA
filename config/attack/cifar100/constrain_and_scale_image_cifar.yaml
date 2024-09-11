@@ -1,0 +1,87 @@
+_base_ : ['../../base.yaml', '../../dataset/backdoor_cifar10.yaml']
+
+############## base differential #############
+
+########### base differential ends ###########
+
+method: backdoor_attack_fedavg
+attack_method: constrain_and_scale
+defense_method: None
+
+# Model
+model: reducedresnet18
+
+# Attack method
+num_attackers: 10 # number of attackers
+malicious: 0.1 # the ratio of malicious
+
+# Dataset configure
+data_type: image
+dataset: cifar
+iid: 1 # whether i.i.d or not
+sampling_dirichlet: true
+dirichlet_alpha: 0.9
+
+################################ still need merge
+
+test_batch_size: 1000
+lr: 0.1
+momentum: 0.9
+decay: 0.0005
+batch_size: 64
+
+no_models: 10
+epochs: 10100
+retrain_no_times: 2
+
+eta: 1
+
+save_model: false
+save_on_epochs:
+  - 11111
+  - 22222
+resumed_model: recover/model_cifar_10k.pt.tar
+environment_name: PPDL_CIFAR_INITIAL
+report_train_loss: false
+report_test_loss: false
+report_poison_loss: false
+track_distance: false
+track_clusters: false
+log_interval: 10
+
+modify_poison: false
+
+poison_type: combined
+
+#  image_29911.jpg
+poison_image_id: 2775
+poison_image_id_2: 1605
+poison_label_swap: 2
+size_of_secret_dataset: 500
+poisoning_per_batch: 1
+is_poison: true
+baseline: false
+random_compromise: false
+
+
+poison_epochs:
+  - 10005
+retrain_poison: 20
+scale_weights: 100
+poison_lr: 0.001
+poison_momentum: 0.9
+poison_decay: 0.005
+poison_step_lr: false
+clamp_value: 1.0
+alpha_loss: 1
+number_of_adversaries: 2
+poisoned_number: 2
+results_json: initial_avg_all
+
+s_norm: 1000000
+diff_privacy: false
+
+
+fake_participants_load: false
+fake_participants_file: data/reddit/updates_cifar.pt.tar
+fake_participants_save: false

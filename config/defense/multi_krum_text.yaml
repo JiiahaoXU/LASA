@@ -1,0 +1,7 @@
+_base_ : ['../base_text.yaml']
+
+############## base differential #############
+
+########### base differential ends ###########
+
+multi_krum_k: True # k for multi-krum

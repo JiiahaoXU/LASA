@@ -1,0 +1,33 @@
+_base_ : ['../../defense/epfed_text.yaml']
+
+############## base differential #############
+num_users: 715 # number of users: K
+num_selected_users: 100 # number of selected users: 100, for shakespeare, it is 10
+round: 1000 # rounds of training
+tau: 1
+batch_size: 4 # local batch size
+local_lr: 1.0 # local learning rate
+local_momentum: 0.5 # SGD Momentum default 0.5
+decay_weight: 0.99 # learning rate decay weight default 0.5
+global_momentum: 0.9 # global momentum
+clip: 1 # 1 # clipping threshold
+########### base differential ends ###########
+
+############# ep differential ################
+noise_multiplier: 1.4 # noise multiplier
+# com_p: 0.3 # compression ratio p = 1.0 implies no compression
+############# ep differential ends############
+
+method: fedavg_maskdp_all
+# attack: agrTailoredTrmean
+# defend: epfed
+# Model
+# model: rnnshakespeare
+
+# Dataset configure
+data_type: text
+# dataset: shakespeare
+iid: 0 # whether i.i.d or not
+
+# Attack method
+# num_attackers: 25 # number of attackers

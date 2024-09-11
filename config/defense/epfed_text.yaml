@@ -1,0 +1,16 @@
+_base_ : ['../base_text.yaml']
+
+############## base differential #############
+
+########### base differential ends ###########
+
+privc: 'gaussian_mechanism' # compressor name
+sigma: 0 # noise multiplier * sensitivity = sigma
+noise_multiplier: 1.0 # noise multiplier
+# eps: 1.0 # epsilon
+# delta: 1 / 10000 # delta <= 1/2N
+
+use_dp: 1
+# dp_mechanism: 'Laplace' # Laplace or Gaussian
+com_p: 1.0 # compression ratio p = 1.0 implies no compression
+use_momentum: 0

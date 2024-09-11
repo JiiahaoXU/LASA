@@ -1,0 +1,7 @@
+_base_ : ['../base_text.yaml']
+
+############## base differential #############
+
+########### base differential ends ###########
+
+com_p: 0.4 # compression ratio p = 1.0 implies no compression 0.07

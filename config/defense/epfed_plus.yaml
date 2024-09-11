@@ -1,0 +1,48 @@
+_base_ : ['../base.yaml']
+
+############## base differential #############
+
+########### base differential ends ###########
+
+privc: 'gaussian_mechanism' # compressor name
+sigma: 0 # noise multiplier * sensitivity = sigma
+noise_multiplier: 1.4 # noise multiplier
+# eps: 1.0 # epsilon
+# delta: 1 / 10000 # delta <= 1/2N
+
+use_dp: 1
+# dp_mechanism: 'Laplace' # Laplace or Gaussian
+com_p: 1 # compression ratio p = 1.0 implies no compression
+g_com_p: 1 # compression ratio p = 1.0 implies no compression
+
+use_momentum: 1
+use_boost_momentum: 0
+use_adam: 0
+use_adagrad: 0
+use_yogi: 0
+use_lion: 0
+
+# global_clip: 0.5
+
+momentum_eta_g: 0.5
+momentum_beta: 0.8
+
+boost_momentum_eta_g: 1.5
+boost_momentum_eta_g_decay: 0.99
+boost_momentum_alpha: 0.5
+
+adagrad_beta_1: 0
+adagrad_eta_g: 0.03
+
+adam_beta_1: 0.9
+adam_beta_2: 0.99
+adam_eta_g: 0.01
+
+yogi_beta_1: 0.9
+yogi_beta_2: 0.99
+yogi_eta_g: 0.03
+
+lion_beta_1: 0.9
+lion_beta_2: 0.99
+lion_eta_g: 0.005
+lion_lamda: 0.015

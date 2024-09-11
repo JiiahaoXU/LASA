@@ -1,0 +1,41 @@
+_base_ : ['../../base.yaml']
+
+############## base differential #############
+num_users: 100 # number of users: K
+num_selected_users: 10 # number of selected users: 100, for shakespeare, it is 10
+frac:  10 / 100 # args.num_selected_users / args.num_users
+round: 300 # rounds of training
+tau: 3
+iteration: 300 * 3 # args.round * args.tau
+batch_size: 64 # local batch size
+local_lr: 0.01 # local learning rate
+########### base differential ends ###########
+
+method: backdoor_attack_fedavg
+attack: dba
+defend: None
+
+# Model
+model: reducedresnet18
+
+# Attack method
+num_attackers: 10 # number of attackers
+poison_local_lr: 0.05
+poison_tau: 6
+poisoning_per_batch: 5 # modify batch_size before modify this
+
+# Dataset configure
+data_type: image
+dataset: cifar
+iid: 1 # whether i.i.d or not
+
+# poision data
+trigger_num: 4
+# single shot - distributed attack:
+poison_rounds: -1 # [203, 205, 207, 209], -1 for all rounds poison
+# gap 3 size 1*6 base (0, 0)
+poison_pattern: [[[0, 0], [0, 1], [0, 2], [0, 3], [0, 4], [0, 5]],
+                [[0, 9], [0, 10], [0, 11], [0, 12], [0, 13], [0, 14]],['''']
+                [[4, 0], [4, 1], [4, 2], [4, 3], [4, 4], [4, 5]],
+                [[4, 9], [4, 10], [4, 11], [4, 12], [4, 13], [4, 14]]]
+targeted_poison_label: 2
